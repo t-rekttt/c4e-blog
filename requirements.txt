@@ -1,0 +1,28 @@
+# ----------------------
+# Flask
+# ----------------------
+flask
+flask-restful
+flask-jwt
+Pillow
+beautifulsoup4
+
+# ----------------------
+# Testing
+# ----------------------
+mock
+
+
+# ----------------------
+# Production Server
+# ----------------------
+eventlet
+gunicorn
+mongoengine
+
+# ----------------------
+# Other
+# ----------------------
+youtube-dl
+addict
+xmltodict

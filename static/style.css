@@ -1,0 +1,31 @@
+.post {
+  margin-bottom: 30px;
+}
+
+.post-container {
+  padding: 40px;
+}
+
+#photo_cover {
+  background-image: url('cover.jpeg');
+  height: 500px;
+}
+
+.author-container{
+  margin-bottom: 10px;
+}
+
+.author-name {
+  font-style: italic;
+}
+
+.post-content{
+  font-family: 'Asap', sans-serif;
+  font-size: 1em;
+}
+
+.post-title {
+  font-size: 2em;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  margin-bottom: 5px;
+}
