@@ -13,12 +13,12 @@
     <div class="post-container">
       {% for post in posts %}
       <div class="post">
-        <div class="post-title">{{ post.title }}</div>
+        <div class="post-title">{{ post.title}}</div>
         <div class="author-container">
           <span>by</span>
           <span class="author-name">{{ post.author }}</span>
         </div>
-        <span class="post-content">{{ post.content }}</span>
+        <span class="post-content">{{ post.content | nl2br }}</span>
       </div>
       {% endfor %}
     </div>
