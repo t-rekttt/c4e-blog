@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>C4E-Blog Admin</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='pure-min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='fa-all.css') }}">  
+  {% include 'head.html' %}
+</head>
+<body>
+  <h1>Admin</h1>
+  <table class="pure-table pure-table-bordered" id="tbl_post">
+    <thead>
+      <th>#</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Content</th>
+      <th></th>
+    </thead>
+    <tbody>
+      {% for post in posts %}
+        <tr id="post_{{ post._id }}">
+          <td>{{ loop.index }}</td>
+          <td>{{ post.title }}</td>
+          <td>{{ post.author }}</td>
+          <td>{{ post.content }}</td>
+          <td>
+            <span class="underline" onclick="deletePost('{{ post._id }}')">
+                Delete
+            </span> 
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <script src="{{ url_for('static', filename='jquery-3.3.1.min.js') }}" ></script>
+  <script src="{{ url_for('static', filename='admin.js') }}" ></script>
+</body>
+</html>

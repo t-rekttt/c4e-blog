@@ -1,14 +1,36 @@
 from flask import Flask, render_template
-from db import get_all_posts
+from flask_restful import Resource, Api
+from db import get_all_posts, find_post_by_id, delete_post
 import re
 from jinja2 import evalcontextfilter, Markup, escape
 
 app = Flask(__name__)
+api = Api(app)
+
+class PostRes(Resource):
+  def delete(self, post_id):
+    post = find_post_by_id(post_id)
+    if post is None:
+      return {
+        'success': 0,
+        'message': 'Post not found',
+      }
+    else:
+      delete_post(post_id)
+      return {
+        'success': 1,
+        'message': 'Post was deleted',
+      }
 
 @app.route('/')
 def index():
     posts = get_all_posts()
     return render_template("index.html", posts=posts)
+
+@app.route('/admin')
+def admin():
+  posts = get_all_posts()
+  return render_template('admin.html', posts=posts)
 
 _paragraph_re = re.compile(r'(?:\r\n|\r|\n){2,}')
 
@@ -21,6 +43,7 @@ def nl2br (eval_ctx, value):
         result = Markup(result)
     return result
 
+api.add_resource(PostRes, '/posts/<post_id>')
 
 if __name__ == '__main__':
   app.run(debug=True)
