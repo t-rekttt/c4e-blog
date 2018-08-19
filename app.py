@@ -15,6 +15,7 @@ login_manager.init_app(app)
 api = Api(app)
 
 class PostRes(Resource):
+  @login_required
   def delete(self, post_id):
     post = find_post_by_id(post_id)
     if post is None:

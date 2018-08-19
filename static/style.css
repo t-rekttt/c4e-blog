@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'simplifica';
+  src: url('../static/simplifica.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
 html, body {
   height: 100%;
 }
@@ -8,12 +13,22 @@ body {
 
 * {
   font-family: 'Roboto', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 input {
   padding: 3px;
 }
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+
+input::-webkit-input-placeholder { font-weight: 100; }
+input:-moz-placeholder { font-weight: 100; } /* FF 4-18 */
+input::-moz-placeholder { font-weight: 100; } /* FF 19+ */
+input:-ms-input-placeholder { font-weight: 100; } /* IE 10+ */
 
 .post {
   margin-bottom: 30px;
@@ -79,19 +94,43 @@ input {
 /*  Login specifics  */
 #login_form input {
   outline: none;
+  font-family: 'simplifica', sans-serif;
 }
+
+#login_form input {
+  text-align: center;
+}
+
 
 #login_form #username {
   border-width: 0px 0px 1px 0px;
+  padding-bottom: 8px;
 }
 
 #login_form #password {
   border-width: 0px;
+  padding-top: 8px;
 }
 
 #login_form button {
-  margin-top: 16px;
+  border: none;
+  padding: 4px 0px 4px 0px;
+  border-radius: 3px;
+  text-align: center;
+  outline: none;
+  position: relative;
+  top: -28px;
+  left: 148px;
 }
 
-
+#login_btn_img {
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  background-color: #73737347;
+  object-fit: scale-down;
+}
+#login_btn_img:active {
+  background-color: #7373737d;
+}
 /* End login specifics */
