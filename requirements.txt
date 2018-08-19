@@ -4,6 +4,7 @@
 flask
 flask-restful
 flask-jwt
+flask-login
 Pillow
 beautifulsoup4
 
@@ -26,3 +27,4 @@ mongoengine
 youtube-dl
 addict
 xmltodict
+py-bcrypt

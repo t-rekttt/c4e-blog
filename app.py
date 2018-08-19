@@ -4,7 +4,14 @@ from db import get_all_posts, find_post_by_id, delete_post
 import re
 from jinja2 import evalcontextfilter, Markup, escape
 
+from flask_login import LoginManager, login_required
+
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'a9SQqcH7tD8Gms4WqnX9G2ZEJQDNWuWd'
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+
 api = Api(app)
 
 class PostRes(Resource):
@@ -28,9 +35,14 @@ def index():
     return render_template("index.html", posts=posts)
 
 @app.route('/admin')
+@login_required
 def admin():
   posts = get_all_posts()
   return render_template('admin.html', posts=posts)
+
+@app.route('/login')
+def login():
+  return render_template('login.html')
 
 _paragraph_re = re.compile(r'(?:\r\n|\r|\n){2,}')
 
