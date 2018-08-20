@@ -123,6 +123,10 @@ input:-ms-input-placeholder { font-weight: 100; } /* IE 10+ */
   left: 148px;
 }
 
+#login_form button.hidden {
+  visibility: hidden;
+}
+
 #login_btn_img {
   width: 24px;
   height: 24px;
